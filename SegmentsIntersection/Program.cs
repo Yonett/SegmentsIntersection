@@ -58,6 +58,13 @@
             if (first.End == second.End)
                 return first.End;
 
+            // first  = t *  first.Start + (1 - t) * first.End
+            // second = s * second.Start + (1 - s) * second.End
+            
+            // t * Start + (1 - t) * End = s * Start + (1 - s) * End
+
+            // t * (first.Start - first.End) + s * (second.End - second.Start) = second.End - first.End
+
             double a1 = first.Start.X - first.End.X, b1 = second.End.X - second.Start.X, c1 = second.End.X - first.End.X;
             double a2 = first.Start.Y - first.End.Y, b2 = second.End.Y - second.Start.Y, c2 = second.End.Y - first.End.Y;
             double a3 = first.Start.Z - first.End.Z, b3 = second.End.Z - second.Start.Z, c3 = second.End.Z - first.End.Z;
